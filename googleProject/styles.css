@@ -1,0 +1,48 @@
+
+
+*{
+    margin:0;
+    font-family: 'Hind Siliguri', sans-serif;}
+
+span {
+    margin:auto 0.5rem;
+    top: 0;
+
+}
+.top-bar{
+    margin:1rem;
+}
+.top-bar-text{
+    vertical-align: super;
+    font-size: 14px;
+
+}
+.input{
+    vertical-align: super;
+
+}
+
+.logo{
+    padding-top: 12rem;
+    justify-content: center;
+    display: flex;
+}
+.search{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+.search-row{
+    border: 1px solid #dfe1e5;
+    padding: 10px;
+    border-radius: 50px;
+}
+input{
+    width: 30rem;
+    border-color: white;
+    color: black;
+    border-width: 0;
+}
+input[type=text]:focus {
+    outline: none;
+}
