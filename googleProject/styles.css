@@ -84,3 +84,24 @@ button:hover{
     text-decoration: underline;
     cursor:pointer ;
 }
+.footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: lightgrey;
+    color:#70757a;
+}
+.upper{
+    padding: 0.5rem;
+    border-bottom: 0.5px solid #70757a;
+}
+.lower{
+    position: relative;
+    padding: 0.5rem;
+    display: flex;
+}
+
+.mid-lower-footer{
+    display: inline;
+
+}
