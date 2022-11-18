@@ -82,26 +82,45 @@ button:hover{
 }
 .language:hover{
     text-decoration: underline;
-    cursor:pointer ;
+    cursor:pointer;
 }
+
 .footer{
     position: fixed;
     bottom: 0;
+    background-color: #f2f2f2;
     width: 100%;
-    background: lightgrey;
-    color:#70757a;
+    color: #70757a;
+    font-size: 15px;
 }
 .upper{
-    padding: 0.5rem;
-    border-bottom: 0.5px solid #70757a;
+    border-bottom: 1px solid #dadce0;
 }
-.lower{
-    position: relative;
-    padding: 0.5rem;
+.upper-list{
+    margin: 1rem;
+}
+.upper-item{
+    float: right;
+}
+.lower-list{
+    margin: 1rem;
+}
+.right{
+    float: right;
+}
+.left{
+    float:left;
+}
+.lower-list > span:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+.middle{
     display: flex;
+    justify-content: center;
+    padding: 1rem
 }
-
-.mid-lower-footer{
-    display: inline;
-
+.middle:hover{
+    cursor: pointer;
+    text-decoration: underline;
 }
