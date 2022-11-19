@@ -1,0 +1,26 @@
+.user-logo{
+    border-radius: 50px;
+}
+#txtarea{
+    float: right;
+    width:50%;
+    display: inline-flex;
+    border-radius: 40px;
+}
+.googlelogo{
+    float: right;
+    margin-left: 2rem;
+}
+
+.top-border{
+    border-bottom: 1px solid #dadce0;
+}
+
+.top-menu{
+    font-size: 14px;
+    color: #5f6368;
+}
+
+.top-menu:hover{
+    cursor:pointer;
+}
