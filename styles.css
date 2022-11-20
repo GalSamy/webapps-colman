@@ -1,0 +1,12 @@
+.head{
+    background: linear-gradient(340deg, rgba(160,32,240,1) 0%, rgba(128,78,246,1) 48%, rgba(13,110,253,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+}
+
+.btn-head{
+    background: rgb(160,32,240);
+    background: linear-gradient(340deg, rgba(160,32,240,1) 0%, rgba(128,78,246,1) 48%, rgba(13,110,253,1) 100%);
+
+}
