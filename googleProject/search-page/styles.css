@@ -24,3 +24,21 @@
 .top-menu:hover{
     cursor:pointer;
 }
+.cardtxt{
+    color: #4d5156;
+    font-size: 14px;
+}
+.cardtitle{
+    color: #1a0dab;
+    font-size: 20px;
+}
+.cardlink{
+    color: #1a0dab;
+    font-size: 14px;
+    margin-left: 5px;
+}
+.mainlinkcard{
+    color: #202124;
+    font-size: 14px;
+
+}
