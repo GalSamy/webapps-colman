@@ -42,3 +42,11 @@
     font-size: 14px;
 
 }
+@media only screen and (max-width: 550px) {
+    .googlelogo {
+        display: none;
+    }
+    #txtarea{
+        width: 60%;
+    }
+}
