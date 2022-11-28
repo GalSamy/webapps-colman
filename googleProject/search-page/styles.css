@@ -74,7 +74,9 @@
 }
 @media only screen and (max-width: 830px) {
     .bi{
-        margin-bottom:2rem
+        margin-bottom:2rem;
+        font-size: 10px;
+        text-align: end;
     }
     .tools{
         width: 100%;
