@@ -55,11 +55,26 @@
     color: #4d5156;
     cursor: pointer;
 }
+.bi{
+    color: #70757a;
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 1rem;
+}
 @media only screen and (max-width: 550px) {
     .googlelogo {
         display: none;
     }
     #txtarea{
         width: 60%;
+    }
+}
+@media only screen and (max-width: 830px) {
+    .bi{
+        margin-bottom:2rem
+    }
+    .tools{
+        width: 100%;
+        text-align: end;
     }
 }
