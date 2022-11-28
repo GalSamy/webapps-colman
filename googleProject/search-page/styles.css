@@ -42,6 +42,19 @@
     font-size: 14px;
 
 }
+.footer{
+    background-color: #f2f2f2;
+}
+.fa{
+    color: #70757a;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.fa:hover{
+    color: #4d5156;
+    cursor: pointer;
+}
 @media only screen and (max-width: 550px) {
     .googlelogo {
         display: none;
