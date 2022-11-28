@@ -61,6 +61,9 @@
     font-size: 14px;
     margin-bottom: 1rem;
 }
+.pad{
+    padding-right: 60px;
+}
 @media only screen and (max-width: 550px) {
     .googlelogo {
         display: none;
@@ -76,5 +79,8 @@
     .tools{
         width: 100%;
         text-align: end;
+    }
+    .pad{
+        padding-right: 0;
     }
 }
