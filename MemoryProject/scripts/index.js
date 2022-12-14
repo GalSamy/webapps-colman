@@ -11,10 +11,13 @@ $(document).ready(() =>{
 function change(){
     const slider = $("#cardsAmountRange")
    cardAmount = slider.val()
-    console.log(cardAmount)
     $("#amount").val(cardAmount)
 }
 function gameInit(){
+    $("#main-form").css("cssText", "display : none !important")
+    $("#Title").append(`You Have ${(cardAmount / 2)} Seconds To Look At The Cards!`)
+
+
     for(let i=0.5;i<=cardAmount/2;i+=0.5)
     {
         cardsIds.push(Math.ceil(i))
@@ -27,6 +30,26 @@ function gameInit(){
     row.className= 'row'
     cardContainer[0].appendChild(row)
     createCards()
+    let i = 0;
+
+    const timeout = setTimeout(() =>{
+        clearInterval(interval)
+        $("#Title").text("Time : 0")
+        let time = 0;
+        const stoper = setInterval(() =>{
+            $("#Title").text(`Time : ${time}`)
+            time++
+        },1000)
+
+    }, (cards.length / 2 + 1) * 1000)
+
+    const interval = setInterval(function (){
+
+
+            $("#Title").text(`You Have ${(cards.length / 2) - i} Seconds To Look At The Cards!`)
+            i++;
+        }, 1000)
+
 }
 function createCards(){
     let i=0
@@ -102,7 +125,7 @@ function createCard(pair,id){
 
     let title = document.createElement('h5');
     title.innerText = pair;
-    title.className = 'card-title';
+    title.className = 'card-title state';
 
     cardBody.appendChild(title)
     card.appendChild(cardBody)
@@ -123,3 +146,6 @@ function createCard(pair,id){
     // card.appendChild(cardBody);
     // cardContainer.appendChild(card);
 }
+function flipCard(card, ) {
+    card.child
+} //
