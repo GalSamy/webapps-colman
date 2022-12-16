@@ -1,5 +1,6 @@
 let cardAmount;
 let cardsIds=[]
+let flippedMap = new Map;
 let cards =[]
 var cardContainer = document.getElementsByClassName("card-container")
 let clickedPair=-1
@@ -34,6 +35,9 @@ function gameInit(){
 
     const timeout = setTimeout(() =>{
         clearInterval(interval)
+        for (const card in cardsIds){
+            flipCard(card)
+        }
         $("#Title").text("Time : 0")
         let time = 0;
         const stoper = setInterval(() =>{
@@ -55,6 +59,7 @@ function createCards(){
     let i=0
     cardsIds.forEach(pair => {
         cards.push(createCard(pair,i))
+        flippedMap.set(i, false);
         i++
     });
     console.log(cards)
@@ -83,6 +88,7 @@ function shuffle(){
     }
 }
 function clicked(card){
+  //  flipCard(card.id) not sure what to do here;
     console.log("clickedPair: "+clickedPair)
     console.log("clickedPair: "+clickedPair)
     if(clickedPair == -1)
@@ -90,10 +96,12 @@ function clicked(card){
         card.style.backgroundColor = randomColor()
         lastCard=card
         clickedPair=card.getAttribute("data-pair")
+
     }
     else if(card.getAttribute("id")==lastCard.getAttribute("id")){
         card.style.backgroundColor="transparent"
         clickedPair =-1
+
     }
     else if(card.getAttribute("data-pair") == clickedPair)
     {
@@ -103,6 +111,7 @@ function clicked(card){
     else{
         lastCard.style.backgroundColor = "transparent"
         clickedPair=-1
+    //    flipCard(card.id)
     } 
     
 }
@@ -122,13 +131,15 @@ function createCard(pair,id){
     
     let cardBody = document.createElement('div');
     cardBody.className = 'card-body';
+    cardBody.id = `cardBody-${id}`
 
     let title = document.createElement('h5');
     title.innerText = pair;
-    title.className = 'card-title state';
-
+    title.className = 'card-title';
+    title.id = `cardTitle-${id}`
     cardBody.appendChild(title)
     card.appendChild(cardBody)
+
     return card
     // let cardBody = document.createElement('div');
     // cardBody.className = 'card-body';
@@ -146,6 +157,16 @@ function createCard(pair,id){
     // card.appendChild(cardBody);
     // cardContainer.appendChild(card);
 }
-function flipCard(card, ) {
-    card.child
+function flipCard(card) { // flipped is false by default
+    console.log(card)
+    if(flippedMap.get(card)){ // flipped => hidden
+        $(`#cardTitle-${card}`).css("cssText", "display : flex !important")
+        $(`#cardBody-${card}`).css("cssText", "display : flex !important")
+        flippedMap.set(card, false);
+    }else{ // hide
+        $(`#cardTitle-${card}`).css("cssText","display : none !important")
+        $(`#cardBody-${card}`).css("cssText","display : none !important")
+        flippedMap.set(card,true);
+        console.log(`flipped ${card}`)
+    }
 } //
