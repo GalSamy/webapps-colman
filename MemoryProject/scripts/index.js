@@ -31,7 +31,7 @@ function gameInit(){
     //     createCard(element)
     // });
     let row = document.createElement('div')
-    row.className= 'row'
+    row.className= 'row xl-4 l-3 m-2 s-2'
     cardContainer[0].appendChild(row)
     createCards()
     let i = 0;
@@ -153,6 +153,7 @@ function createCard(pair,id){
     card.setAttribute('data-pair',pair)
     card.style.margin="1rem"
     card.style.height="10rem"
+    card.style.width="18rem"
     
     let cardBody = document.createElement('div');
     cardBody.className = 'card-body';
