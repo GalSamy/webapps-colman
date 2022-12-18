@@ -68,7 +68,7 @@ function createCards(){
     console.log(cards)
     let row = document.createElement('div')
     shuffle()
-    row.className = 'row'
+    row.className = 'row xl-4 l-3 m-2 s-1'
     cards.forEach(card => {
         row.appendChild(card)
     });
@@ -125,6 +125,7 @@ function clicked(card){
             $(`#${card.id}`).css("cssText", "visibility: hidden !important")
             amountCardsClicked=0
             },500)
+
         }
         else{
             console.log('case 4')
@@ -147,13 +148,13 @@ function randomColor()
 function createCard(pair,id){
 
     let card = document.createElement('div')
-    card.className =  'card col-2'
+    card.className =  'card col-4'
     card.setAttribute('id',id)
     card.setAttribute("onclick","clicked(this)")
     card.setAttribute('data-pair',pair)
     card.style.margin="1rem"
     card.style.height="10rem"
-    
+    card.style.width="18rem"
     let cardBody = document.createElement('div');
     cardBody.className = 'card-body';
     cardBody.id = `cardBody-${id}`
