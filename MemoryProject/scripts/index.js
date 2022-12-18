@@ -5,6 +5,7 @@ let cards =[]
 var cardContainer = document.getElementsByClassName("card-container")
 let clickedPair=-1
 let lastCard
+let amountCardsClicked=0
 $(document).ready(() =>{
     console.log("document ready")
 })
@@ -15,6 +16,8 @@ function change(){
     $("#amount").val(cardAmount)
 }
 function gameInit(){
+    amountCardsClicked = 3
+    
     $("#main-form").css("cssText", "display : none !important")
     $("#Title").append(`You Have ${(cardAmount / 2)} Seconds To Look At The Cards!`)
 
@@ -44,7 +47,7 @@ function gameInit(){
             $("#Title").text(`Time : ${time}`)
             time++
         },1000)
-
+        amountCardsClicked = 0
     }, (cards.length / 2 + 1) * 1000)
 
     const interval = setInterval(function (){
@@ -88,31 +91,53 @@ function shuffle(){
     }
 }
 function clicked(card){
-  //  flipCard(card.id) not sure what to do here;
+    amountCardsClicked++
+    console.log("amounts of cards: "+amountCardsClicked)
     console.log("clickedPair: "+clickedPair)
-    console.log("clickedPair: "+clickedPair)
-    if(clickedPair == -1)
+    if(amountCardsClicked<=2)
     {
-        card.style.backgroundColor = randomColor()
-        lastCard=card
-        clickedPair=card.getAttribute("data-pair")
+        //in case first card clicked
+        if(clickedPair == -1)
+        {
+            console.log('case 1')
+            //card.style.backgroundColor = '#00ff00'
+            lastCard=card
+            clickedPair=card.getAttribute("data-pair")
+            flipCard(card.id)
+        }
+        //in case the same card clicked twice
+        else if(card.id==lastCard.id){
+            console.log('case 2')
+            flipCard(card.id)
+            clickedPair =-1
+            amountCardsClicked=0
 
+        }
+        //in case the correct card clicked
+        else if(card.getAttribute("data-pair") == clickedPair)
+        {
+            console.log('case 3')
+            flipCard(card.id)
+            setTimeout(()=>{
+            //card.style.backgroundColor=lastCard.style.backgroundColor
+            clickedPair = -1
+            $(`#${lastCard.id}`).css("cssText", "visibility: hidden !important")
+            $(`#${card.id}`).css("cssText", "visibility: hidden !important")
+            amountCardsClicked=0
+            },500)
+        }
+        else{
+            console.log('case 4')
+            flipCard(card.id)
+            setTimeout(()=>{
+            flipCard(lastCard.id)
+            flipCard(card.id)
+            //lastCard.style.backgroundColor = "transparent"
+            clickedPair=-1
+            amountCardsClicked=0
+        }, 500)
+        }
     }
-    else if(card.getAttribute("id")==lastCard.getAttribute("id")){
-        card.style.backgroundColor="transparent"
-        clickedPair =-1
-
-    }
-    else if(card.getAttribute("data-pair") == clickedPair)
-    {
-        card.style.backgroundColor=lastCard.style.backgroundColor
-        clickedPair = -1
-    }
-    else{
-        lastCard.style.backgroundColor = "transparent"
-        clickedPair=-1
-    //    flipCard(card.id)
-    } 
     
 }
 function randomColor()
@@ -159,8 +184,8 @@ function createCard(pair,id){
 }
 function flipCard(card) { // flipped is false by default
     console.log(card)
-    if(flippedMap.get(card)){ // flipped => hidden
-        $(`#cardTitle-${card}`).css("cssText", "display : flex !important")
+    if(flippedMap.get(card)){ // flipped is true => hidden
+        $(`#cardTitle-${card}`).css("cssText", "display : flex !important") 
         $(`#cardBody-${card}`).css("cssText", "display : flex !important")
         flippedMap.set(card, false);
     }else{ // hide
