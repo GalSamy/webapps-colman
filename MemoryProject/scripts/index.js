@@ -68,7 +68,7 @@ function createCards(){
     console.log(cards)
     let row = document.createElement('div')
     shuffle()
-    row.className = 'row xl-4 l-3 m-2 s-1'
+    row.className = 'row xl-4 l-3 m-2 s-2'
     cards.forEach(card => {
         row.appendChild(card)
     });
